@@ -1,0 +1,14 @@
+!SESSION 2015-04-23 17:19:36.540 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.6.0_65
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -keyring /Users/ricardo/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -data /Users/ricardo/Desktop/TOS_ESB-20141207_1530-V5.6.1/Studio/workspace_prueba -keyring /Users/ricardo/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.emf.ecore 2 0 2015-04-23 17:19:40.550
+!MESSAGE Both 'org.talend.model' and 'org.talend.model' register a package for 'platform:/resource/org.talend.model/model/Component.xsd'
+
+!ENTRY org.talend.platform.logging 1 0 2015-04-23 17:19:41.825
+!MESSAGE 2015-04-23 17:19:41,823 INFO  org.talend.repository.ui.login.LoginComposite  - validate updatesite...
+
