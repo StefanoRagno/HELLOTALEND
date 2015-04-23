@@ -81,60 +81,60 @@
     <elementParameter field="TEXT" name="FOOTER_LIBRARY" value=""/>
     <elementParameter field="TEXT" name="FOOTER_CODE" value=""/>
     <elementParameter field="TEXT" name="FOOTER_IMPORT" value=""/>
-    <routinesParameter id="_-fNcIOoBEeS_JsH9kBpG3w" name="DataOperation"/>
-    <routinesParameter id="_-fskUOoBEeS_JsH9kBpG3w" name="Mathematical"/>
-    <routinesParameter id="_-fvAkOoBEeS_JsH9kBpG3w" name="Numeric"/>
-    <routinesParameter id="_-f28YOoBEeS_JsH9kBpG3w" name="Relational"/>
-    <routinesParameter id="_-f4xkOoBEeS_JsH9kBpG3w" name="StringHandling"/>
-    <routinesParameter id="_-f7N0OoBEeS_JsH9kBpG3w" name="TalendDataGenerator"/>
-    <routinesParameter id="_-f9DAOoBEeS_JsH9kBpG3w" name="TalendDate"/>
-    <routinesParameter id="_-gAGUOoBEeS_JsH9kBpG3w" name="TalendString"/>
+    <routinesParameter id="_ouL4cOoEEeSIFc-mwrH18g" name="DataOperation"/>
+    <routinesParameter id="_ouKqUOoEEeSIFc-mwrH18g" name="Mathematical"/>
+    <routinesParameter id="_ouNtoOoEEeSIFc-mwrH18g" name="Numeric"/>
+    <routinesParameter id="_otkNYOoEEeSIFc-mwrH18g" name="Relational"/>
+    <routinesParameter id="_ouI1IOoEEeSIFc-mwrH18g" name="StringHandling"/>
+    <routinesParameter id="_ougokOoEEeSIFc-mwrH18g" name="TalendDataGenerator"/>
+    <routinesParameter id="_oudlQOoEEeSIFc-mwrH18g" name="TalendDate"/>
+    <routinesParameter id="_ouPi0OoEEeSIFc-mwrH18g" name="TalendString"/>
   </parameters>
-  <node componentName="tRowGenerator" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="128" posY="160">
+  <node componentName="tRowGenerator" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="64" posY="160">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tRowGenerator_1"/>
     <elementParameter field="DIRECTORY" name="JAVA_LIBRARY_PATH" value="/home/valerio/Aplicaciones/TOS_ESB-V5.6.1/Studio/configuration/lib/java"/>
     <elementParameter field="TEXT" name="NB_ROWS" value="100"/>
     <elementParameter field="TABLE" name="VALUES">
-      <elementValue elementRef="SCHEMA_COLUMN" value="nombres"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="Nombre"/>
       <elementValue elementRef="ARRAY" value="TalendDataGenerator.getFirstName()"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="apellido"/>
-      <elementValue elementRef="ARRAY" value="TalendDataGenerator.getLastName()"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="Telefono"/>
+      <elementValue elementRef="ARRAY" value="&quot;+58412&quot;+Numeric.random(100,999)+Numeric.random(10,99)+Numeric.random(10,99) "/>
     </elementParameter>
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tRowGenerator_1">
-      <column comment="" key="false" name="nombres" nullable="true" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" name="apellido" nullable="true" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="Nombre" nullable="true" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="Telefono" nullable="true" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="320" posY="160">
+  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="224" posY="160">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMap_1"/>
     <elementParameter field="DIRECTORY" name="JAVA_LIBRARY_PATH" value="/home/valerio/Aplicaciones/TOS_ESB-V5.6.1/Studio/configuration/lib/java"/>
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
     <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
-    <elementParameter field="IMAGE" name="PREVIEW" value="_GdBnQOoCEeS_JsH9kBpG3w-tMap_1-PREVIEW.bmp"/>
+    <elementParameter field="IMAGE" name="PREVIEW" value="_acLrEOoHEeSV5pMVHH1IyA-tMap_1-PREVIEW.bmp"/>
     <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true"/>
     <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false"/>
     <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
     <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="false"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" label="salida" name="salida">
-      <column comment="" key="false" name="nombres" nullable="true" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="Key" nullable="true" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
       <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
       <outputTables sizeState="INTERMEDIATE" name="salida">
-        <mapperTableEntries name="nombres" expression="row1.nombres +&quot; &quot;+ row1.apellido " type="id_String" nullable="true"/>
+        <mapperTableEntries name="Key" expression="row1.Nombre +&quot; [&quot;+row1.Telefono+&quot;]&quot; " type="id_String" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="row1" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
-        <mapperTableEntries name="nombres" type="id_String" nullable="true"/>
-        <mapperTableEntries name="apellido" type="id_String" nullable="true"/>
+        <mapperTableEntries name="Nombre" type="id_String" nullable="true"/>
+        <mapperTableEntries name="Telefono" type="id_String" nullable="true"/>
       </inputTables>
     </nodeData>
   </node>
-  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="480" posY="160">
+  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="384" posY="160">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tLogRow_1"/>
     <elementParameter field="DIRECTORY" name="JAVA_LIBRARY_PATH" value="/home/valerio/Aplicaciones/TOS_ESB-V5.6.1/Studio/configuration/lib/java"/>
     <elementParameter field="RADIO" name="BASIC_MODE" value="true"/>
@@ -149,27 +149,22 @@
     <elementParameter field="CHECK" name="PRINT_COLNAMES" value="false"/>
     <elementParameter field="CHECK" name="USE_FIXED_LENGTH" value="false"/>
     <elementParameter field="TABLE" name="LENGTHS">
-      <elementValue elementRef="SCHEMA_COLUMN" value="nombres"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="Key"/>
       <elementValue elementRef="LENGTH" value="10"/>
     </elementParameter>
     <elementParameter field="TEXT" name="SCHEMA_OPT_NUM" value="100"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" label="salida" name="tLogRow_1">
-      <column comment="" key="false" name="nombres" nullable="true" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="Key" nullable="true" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
     </metadata>
   </node>
   <connection connectorName="FLOW" label="row1" lineStyle="0" metaname="tRowGenerator_1" offsetLabelX="0" offsetLabelY="0" source="tRowGenerator_1" target="tMap_1">
-    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER">
-      <elementValue elementRef="TRACE_COLUMN" value="nombres"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-    </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="row1"/>
   </connection>
   <connection connectorName="FLOW" label="salida" lineStyle="0" metaname="salida" offsetLabelX="0" offsetLabelY="0" source="tMap_1" target="tLogRow_1">
     <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER">
-      <elementValue elementRef="TRACE_COLUMN" value="nombres"/>
+      <elementValue elementRef="TRACE_COLUMN" value="Key"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
